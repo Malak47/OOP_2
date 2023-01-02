@@ -1,11 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Ex2_1 {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) {
         String[] names = createTextFiles(3, 2, 1000);
         System.out.println(getNumOfLinesThreads(names));
         System.out.println(getNumOfLines(names));
@@ -84,8 +85,25 @@ public class Ex2_1 {
         return numOfLines;
     }
 
-    public static int getNumOfLinesThreadPool(String[] fileNames) throws ExecutionException, InterruptedException {
-        return 0;
+    /**
+     * Returns the total number of lines in all the text files specified by the 'fileNames' array, using a thread pool.
+     *
+     * @param fileNames An array of strings containing the names of the text files.
+     * @return The total number of lines in all the text files.
+     */
+    public static int getNumOfLinesThreadPool(String[] fileNames) {
+        int numOfLines = 0;
+        ExecutorService threadPool = Executors.newFixedThreadPool(fileNames.length);
+        LineCounterCallable[] callables = new LineCounterCallable[fileNames.length];
+        for (int i = 0; i < fileNames.length; i++) {
+            callables[i] = new LineCounterCallable(fileNames[i]);
+            threadPool.submit(callables[i]);
+        }
+        for (LineCounterCallable callable : callables) {
+            numOfLines += callable.call();
+        }
+        threadPool.shutdown();
+        return numOfLines;
     }
 
     /**
