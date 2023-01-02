@@ -2,14 +2,14 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Ex2_1 {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         String[] names = createTextFiles(3, 2, 1000);
         System.out.println(getNumOfLinesThreads(names));
+        System.out.println(getNumOfLines(names));
+        System.out.println(getNumOfLinesThreadPool(names));
     }
 
     /**
@@ -19,7 +19,7 @@ public class Ex2_1 {
      * @param seed  The seed for the random number generator.
      * @param bound The upper bound for the random number generator.
      * @return An array of strings containing the names of the created files.
-     **/
+     */
     public static String[] createTextFiles(int n, int seed, int bound) {
         ArrayList<String> fileNames = new ArrayList<>(n);
         ArrayList<Integer> numOfLines = generatesRandoms(n, seed, bound);
@@ -46,7 +46,7 @@ public class Ex2_1 {
      *
      * @param fileNames An array of strings containing the names of the text files.
      * @return The total number of lines in all the text files.
-     **/
+     */
     public static int getNumOfLines(String[] fileNames) {
         int numOfLines = 0;
         for (String filename : fileNames) {
@@ -60,8 +60,28 @@ public class Ex2_1 {
         return numOfLines;
     }
 
+    /**
+     * Returns the total number of lines in all the text files specified by the 'fileNames' array, using multiple threads.
+     *
+     * @param fileNames An array of strings containing the names of the text files.
+     * @return The total number of lines in all the text files.
+     */
     public static int getNumOfLinesThreads(String[] fileNames) {
-        return 0;
+        int numOfLines = 0;
+        LineCounterThread[] threads = new LineCounterThread[fileNames.length];
+        for (int i = 0; i < fileNames.length; i++) {
+            threads[i] = new LineCounterThread(fileNames[i]);
+            threads[i].start();
+        }
+        for (LineCounterThread thread : threads) {
+            try {
+                thread.join();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            numOfLines += thread.getNumOfLines();
+        }
+        return numOfLines;
     }
 
     public static int getNumOfLinesThreadPool(String[] fileNames) throws ExecutionException, InterruptedException {
@@ -70,11 +90,12 @@ public class Ex2_1 {
 
     /**
      * Generates a list of random integers.
+     *
      * @param n the number of random integers to generate.
      * @param seed the seed to use for the random number generator.
      * @param bound the upper bound (exclusive) for the random numbers.
      * @return a list of n random integers in the range [0, bound).
-     **/
+     */
     public static ArrayList<Integer> generatesRandoms(int n, int seed, int bound) {
         ArrayList<Integer> randoms = new ArrayList<>();
         Random rand = new Random(seed);
