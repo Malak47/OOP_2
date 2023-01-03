@@ -31,6 +31,15 @@ This method returns the total number of lines in all the text files specified by
 
 - __fileNames:__ An array of strings containing the names of the text files.
 
+#### Method 5: generatesRandoms
+
+This method generates a list of 'n' random integers. It takes the following arguments:
+- __n:__ The number of random integers to generate.
+- __seed:__ The seed to use for the random number generator.
+- __bound:__ the upper bound (exclusive) for the random numbers.
+
+It returns a list of n random integers in the range [0, bound).
+
 ### LineCounterThread
 This is a class that extends the **Thread** class and counts the number of lines in a specified text file. The file path is specified in the constructor, and the number of lines can be accessed using the **getNumLines()** method.
 
