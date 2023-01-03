@@ -60,5 +60,5 @@ int numOfLines2 = FileLineCounter.getNumOfLinesThreads(fileNames);
 // Count the total number of lines in all the text files using the getNumOfLinesThreadPool method
 int numOfLines3 = FileLineCounter.getNumOfLinesThreadPool(fileNames);
 ```
-
+### UML: 
 ![UML](https://github.com/Lara1011/OOP_2/blob/4eeeac4675b2547e8a4b27c3b77644b418ddee48/UML.png)
