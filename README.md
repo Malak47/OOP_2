@@ -63,16 +63,16 @@ This is a class that implements the **Callable** interface and counts the number
 
 ```Java
 // Create 5 text files with random number of lines
-String[] fileNames = FileLineCounter.createTextFiles(5, 2, 1000);
+String[] fileNames = Ex2_1.createTextFiles(5, 2, 1000);
 
 // Count the total number of lines in all the text files using the getNumOfLines method
-int numOfLines1 = FileLineCounter.getNumOfLines(fileNames);
+int numOfLines1 = Ex2_1.getNumOfLines(fileNames);
 
 // Count the total number of lines in all the text files using the getNumOfLinesThreads method
-int numOfLines2 = FileLineCounter.getNumOfLinesThreads(fileNames);
+int numOfLines2 = Ex2_1.getNumOfLinesThreads(fileNames);
 
 // Count the total number of lines in all the text files using the getNumOfLinesThreadPool method
-int numOfLines3 = FileLineCounter.getNumOfLinesThreadPool(fileNames);
+int numOfLines3 = Ex2_1.getNumOfLinesThreadPool(fileNames);
 ```
 ### UML: 
 ![UML](https://github.com/Lara1011/OOP_2/blob/4eeeac4675b2547e8a4b27c3b77644b418ddee48/UML.png)
