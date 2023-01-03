@@ -10,7 +10,6 @@ This method creates 'n' text files with random number of lines in each file. It 
 - __seed:__ The seed for the random number generator.
 - __bound:__ The upper bound for the random number generator.
 
-<br>
 It returns an array of strings containing the names of the created files.
 
 #### Method 2: getNumOfLines
@@ -19,17 +18,23 @@ This method returns the total number of lines in all the text files specified by
 
 - __fileNames:__ An array of strings containing the names of the text files.
 
+It returns the total number of lines in all the text files.
+
 #### Method 3: getNumOfLinesThreads
 
 This method returns the total number of lines in all the text files specified by the 'fileNames' array, using multiple threads. It takes the following argument:
 
 - __fileNames:__ An array of strings containing the names of the text files.
 
+It returns the total number of lines in all the text files.
+
 #### Method 4: getNumOfLinesThreadPool
 
 This method returns the total number of lines in all the text files specified by the 'fileNames' array, using a thread pool. It takes the following argument:
 
 - __fileNames:__ An array of strings containing the names of the text files.
+
+It returns the total number of lines in all the text files.
 
 #### Method 5: generatesRandoms
 
