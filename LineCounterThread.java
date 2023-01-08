@@ -25,7 +25,7 @@ public class LineCounterThread extends Thread{
      */
     @Override
     public void run() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("/Users/lara/IdeaProjects/OOP_2/" + fileName + ".txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("files\\" + fileName + ".txt"))) {
             while (reader.readLine() != null) {
                 numOfLines++;
             }

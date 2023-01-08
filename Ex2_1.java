@@ -1,16 +1,27 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class Ex2_1 {
 
-    public static void main(String[] args) {
-        String[] names = createTextFiles(3, 2, 1000);
-        System.out.println(getNumOfLinesThreads(names));
+    public static void main(String[] args) throws Exception {
+        String[] names = createTextFiles(1000, 2, 100000);
+//        String[] names = new String[1969];
+//        for (int i = 0; i < 1969; i++)
+//            names[i] = "file_" + (i + 1);
+        long start = System.currentTimeMillis();
         System.out.println(getNumOfLines(names));
+        long end = System.currentTimeMillis();
+        System.out.println("Regular: " + (end - start));
+        start = System.currentTimeMillis();
+        System.out.println(getNumOfLinesThreads(names));
+        end = System.currentTimeMillis();
+        System.out.println("Thread: " + (end - start));
+        start = System.currentTimeMillis();
         System.out.println(getNumOfLinesThreadPool(names));
+        end = System.currentTimeMillis();
+        System.out.println("ThreadPool: " + (end - start));
     }
 
     /**
@@ -27,7 +38,7 @@ public class Ex2_1 {
         String name = "file_";
         for (int i = 1; i <= n; i++) {
             try {
-                FileWriter fWriter = new FileWriter(name + i + ".txt");
+                FileWriter fWriter = new FileWriter("files\\" + name + i + ".txt");
                 fileNames.add(name + i);
                 for (int j = 1; j <= numOfLines.get(i - 1); j++) {
                     fWriter.write("Hello line: " + j);
@@ -51,7 +62,7 @@ public class Ex2_1 {
     public static int getNumOfLines(String[] fileNames) {
         int numOfLines = 0;
         for (String filename : fileNames) {
-            try (BufferedReader reader = new BufferedReader(new FileReader("/Users/lara/IdeaProjects/OOP_2/" + filename + ".txt"))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("files\\" + filename + ".txt"))) {
                 while (reader.readLine() != null)
                     numOfLines++;
             } catch (IOException e) {
@@ -77,10 +88,10 @@ public class Ex2_1 {
         for (LineCounterThread thread : threads) {
             try {
                 thread.join();
+                numOfLines += thread.getNumOfLines();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            numOfLines += thread.getNumOfLines();
         }
         return numOfLines;
     }
@@ -91,26 +102,30 @@ public class Ex2_1 {
      * @param fileNames An array of strings containing the names of the text files.
      * @return The total number of lines in all the text files.
      */
-    public static int getNumOfLinesThreadPool(String[] fileNames) {
-        int numOfLines = 0;
+
+    public static int getNumOfLinesThreadPool(String[] fileNames) throws InterruptedException, ExecutionException {
         ExecutorService threadPool = Executors.newFixedThreadPool(fileNames.length);
-        LineCounterCallable[] callables = new LineCounterCallable[fileNames.length];
-        for (int i = 0; i < fileNames.length; i++) {
-            callables[i] = new LineCounterCallable(fileNames[i]);
-            threadPool.submit(callables[i]);
+        ArrayList<Future<Integer>> results = new ArrayList<>(fileNames.length);
+
+        for (String fileName : fileNames) {
+            results.add(threadPool.submit(new LineCounterCallable(fileName)));
         }
-        for (LineCounterCallable callable : callables) {
-            numOfLines += callable.call();
-        }
+
         threadPool.shutdown();
-        return numOfLines;
+        int totalLines = 0;
+
+        for (Future<Integer> result : results) {
+            totalLines += result.get();
+        }
+
+        return totalLines;
     }
 
     /**
      * Generates a list of random integers.
      *
-     * @param n the number of random integers to generate.
-     * @param seed the seed to use for the random number generator.
+     * @param n     the number of random integers to generate.
+     * @param seed  the seed to use for the random number generator.
      * @param bound the upper bound (exclusive) for the random numbers.
      * @return a list of n random integers in the range [0, bound).
      */

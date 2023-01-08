@@ -1,13 +1,14 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class implements the {@link Callable} interface and counts the number of lines in a specified text file.
  * The file path is specified in the constructor {@link LineCounterCallable#LineCounterCallable(String)}.
  * The number of lines can be accessed by calling the {@link LineCounterCallable#call()} method.
- *
  */
 public class LineCounterCallable implements Callable<Integer> {
     private String fileName;
@@ -17,7 +18,7 @@ public class LineCounterCallable implements Callable<Integer> {
      *
      * @param fileName the name of the file to be processed
      */
-    public LineCounterCallable(String fileName){
+    public LineCounterCallable(String fileName) {
         this.fileName = fileName;
     }
 
@@ -27,15 +28,15 @@ public class LineCounterCallable implements Callable<Integer> {
      * @return the number of lines in the file
      */
     @Override
-    public Integer call() {
-        int numOfLines = 0;
-        try (BufferedReader reader = new BufferedReader(new FileReader("/Users/lara/IdeaProjects/OOP_2/" + fileName + ".txt"))) {
-            while (reader.readLine() != null) {
-                numOfLines++;
+    public Integer call() throws Exception {
+        int numLines = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader("files\\" + fileName + ".txt"))) {
+            while ((reader.readLine()) != null) {
+                numLines++;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return numOfLines;
+        return numLines;
     }
 }
