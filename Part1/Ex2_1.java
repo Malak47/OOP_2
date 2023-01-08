@@ -1,3 +1,5 @@
+package Part1;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -6,10 +8,10 @@ import java.util.concurrent.*;
 public class Ex2_1 {
 
     public static void main(String[] args) throws Exception {
-        String[] names = createTextFiles(1000, 2, 100000);
-//        String[] names = new String[1969];
-//        for (int i = 0; i < 1969; i++)
-//            names[i] = "file_" + (i + 1);
+//        String[] names = createTextFiles(1000, 2, 100000);
+        String[] names = new String[1000];
+        for (int i = 0; i < 1000; i++)
+            names[i] = "file_" + (i + 1);
         long start = System.currentTimeMillis();
         System.out.println(getNumOfLines(names));
         long end = System.currentTimeMillis();

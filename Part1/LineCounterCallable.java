@@ -1,9 +1,9 @@
+package Part1;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Map;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class implements the {@link Callable} interface and counts the number of lines in a specified text file.
