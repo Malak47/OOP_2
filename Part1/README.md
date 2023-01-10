@@ -51,19 +51,19 @@ This is a class that extends the **Thread** class and counts the number of lines
 ### LineCounterCallable
 This is a class that implements the **Callable** interface and counts the number of lines in a specified text file. The file path is specified in the constructor, and the number of lines can be accessed by calling the **call()** method. The **call()** method returns the number of lines as an Integer.
 
-### Running time comparison:
-| numOfFiles | getNumOfLines | getNumOfLinesThreads | getNumOfLinesThreadPool |
-|------------|---------------|----------------------|-------------------------|
-| 10         |               |                      |                         |
-| 100        |               |                      |                         |
-| 1000       |               |                      |                         |
-| 10000      |               |                      |                         |
+### Running time comparison (seconds):
+| bound   | numOfFiles | getNumOfLines | getNumOfLinesThreads | getNumOfLinesThreadPool |
+|---------|------------|---------------|----------------------|-------------------------|
+| 100000  | 100        | 0.225         | 0.131                | 0.11                    |
+| 100000  | 1000       | 1.441         | 1.087                | 0.478                   |
+| 1000000 | 100        | 1.296         | 0.972                | 0.392                   |
+| 1000000 | 1000       | 16.529        | 12.056               | 3.301                   |
 
 ### Example usage
 
 ```Java
 // Create 5 text files with random number of lines
-String[] fileNames = Ex2_1.createTextFiles(5, 2, 1000);
+String[] fileNames = Ex2_1.createTextFiles(10, 2, 10000);
 
 // Count the total number of lines in all the text files using the getNumOfLines method
 int numOfLines1 = Ex2_1.getNumOfLines(fileNames);
