@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Part2</OriginalElement>
+  <nodes>
+    <node x="190.15751827193378" y="258.6929930157443">Part2.Task</node>
+    <node x="-349.41377441930285" y="292.5507036392488">Part2.TaskType</node>
+    <node x="567.8759577519329" y="275.95845122440227">java.util.concurrent.Future</node>
+    <node x="-68.11721867409692" y="318.4387102741259">java.util.concurrent.Executor</node>
+    <node x="-377.89099053714676" y="83.29795261046674">java.lang.Comparable</node>
+    <node x="-145.53369805736395" y="-77.32786676203881">Part2.CustomExecutor</node>
+    <node x="425.8539795134695" y="72.2918922767174">java.lang.Runnable</node>
+    <node x="223.46582333842065" y="65.82285119470131">java.util.concurrent.Callable</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Part2.Task" target="Part2.TaskType" relationship="TO_ONE">
+      <point x="-158.5" y="14.245717258381603" />
+      <point x="109.0" y="2.888006634877115" />
+    </edge>
+    <edge source="Part2.Task" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="4.817280662336998E-4" y="-115.99999301574431" />
+      <point x="348.658" y="229.0" />
+      <point x="-291.891" y="229.0" />
+      <point x="-9.462853256536619E-6" y="26.500047389533265" />
+    </edge>
+    <edge source="Part2.Task" target="java.util.concurrent.Future" relationship="REALIZATION">
+      <point x="158.5" y="5.265458208657947" />
+      <point x="-107.0" y="0.0" />
+    </edge>
+    <edge source="Part2.Task" target="java.util.concurrent.Callable" relationship="REALIZATION">
+      <point x="-54.19169493351313" y="-116.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="Part2.CustomExecutor" target="Part2.Task" relationship="CREATE">
+      <point x="153.0" y="-12.349282043259876" />
+      <point x="382.96582333842065" y="48.322851194701315" />
+      <point x="34.30830506648687" y="-116.0" />
+    </edge>
+    <edge source="Part2.Task" target="java.util.concurrent.Callable" relationship="TO_ONE">
+      <point x="-14.999518271933766" y="-116.0" />
+      <point x="39.19217666157937" y="26.5" />
+    </edge>
+    <edge source="Part2.TaskType" target="java.lang.Comparable" relationship="REALIZATION">
+      <point x="-2.2558069713340956E-4" y="-93.49970363924882" />
+      <point x="-240.414" y="229.0" />
+      <point x="-291.891" y="229.0" />
+      <point x="-9.462853256536619E-6" y="26.500047389533265" />
+    </edge>
+    <edge source="Part2.CustomExecutor" target="java.util.concurrent.Executor" relationship="REALIZATION">
+      <point x="21.41647938326703" y="138.0" />
+      <point x="0.0" y="-26.5" />
+    </edge>
+    <edge source="Part2.Task" target="java.lang.Runnable" relationship="REALIZATION">
+      <point x="137.6964612415357" y="-116.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.5" showDependencies="true" x="212.0" y="216.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
