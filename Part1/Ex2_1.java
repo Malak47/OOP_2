@@ -8,10 +8,10 @@ import java.util.concurrent.*;
 public class Ex2_1 {
 
     public static void main(String[] args) throws Exception {
-//        String[] names = createTextFiles(1000, 2, 100000);
-        String[] names = new String[1000];
-        for (int i = 0; i < 1000; i++)
-            names[i] = "file_" + (i + 1);
+        String[] names = createTextFiles(1000, 2, 100000);
+//        String[] names = new String[1000];
+//        for (int i = 0; i < 1000; i++)
+//            names[i] = "file_" + (i + 1);
         long start = System.currentTimeMillis();
         System.out.println(getNumOfLines(names));
         long end = System.currentTimeMillis();
@@ -24,6 +24,7 @@ public class Ex2_1 {
         System.out.println(getNumOfLinesThreadPool(names));
         end = System.currentTimeMillis();
         System.out.println("ThreadPool: " + (end - start));
+        Ex2_1.deleteFiles(names);
     }
 
     /**
@@ -96,6 +97,26 @@ public class Ex2_1 {
             }
         }
         return numOfLines;
+
+        /*
+        // The implementation that works better on macOS.
+
+        int numOfLines = 0;
+        ExecutorService executor = Executors.newFixedThreadPool(fileNames.length);  // use a thread pool with 8 threads
+        ArrayList<Future<Integer>> results = new ArrayList<>(fileNames.length);
+        try {
+            for (int i = 0; i < fileNames.length; i++) {
+                results.add(i, executor.submit(new LineCounterCallable(fileNames[i])));
+            }
+            for (Future<Integer> result : results) {
+                numOfLines += result.get();
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        executor.shutdown();
+        return numOfLines;
+         */
     }
 
     /**
