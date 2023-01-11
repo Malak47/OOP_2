@@ -2,7 +2,9 @@
 
 This project is an implementation of a Priority-Based Task Manager, it contains three classes: `TaskType`, `Task`, and
 `CustomExecutor`.
+
 ---
+
 ## TaskType
 An Enum class that defines the type of the task, it has three values: [`COMPUTATIONAL, IO, OTHER`]. Each
 value has a priority level from 1 to 10.
@@ -18,7 +20,9 @@ task instances:
 This class is an implementation of `Executor` interface, it's used to execute tasks based on their
 priority level, it allows the submission of `Task` instances, it takes care of sorting the tasks based on their priority
 level and then executing them.
+
 ---
+
 ## Example usage
 ```Java
 //#################### Here is how to CREATE the tasks ####################\\
@@ -52,15 +56,19 @@ executor.execute(task3);
 //#################### Here is how to SHUTDOWN the executor ####################\\
 executor.gracefullyTerminate();
 ```
+
 ---
+
 ## Testing && Results
 **Test #1: We used all the Threads in the cpu.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Result1.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Images/Result1.png)
 
 **Test #2: We used only one Thread.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Result2.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Images/Result2.png)
+
 ---
+
 ## UML
-![UML](https://github.com/Lara1011/OOP_2/blob/b38ff23022ee27f65eb73bb3c418d30043c004d2/Part2/UML.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/b38ff23022ee27f65eb73bb3c418d30043c004d2/Part2/Images/UML.png)
