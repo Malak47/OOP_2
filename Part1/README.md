@@ -67,29 +67,29 @@ After all the threads are done, it adds all the number of lines for each file.
 //#################### Here is how to CREATE the files ####################\\
 
 // Creates 10 text files with random number of lines up to 10000
-                String[] fileNames = createTextFiles(10, 2, 10000);
+String[] fileNames = createTextFiles(10, 2, 10000);
 
 //###### Here is how to COUNT the number of lines with each function ######\\ 
 
-                        // Counts the number of lines using SingleThread \\
-                        int numOfLines1 = getNumOfLines(fileNames);
+// Counts the number of lines using SingleThread \\
+int numOfLines1 = getNumOfLines(fileNames);
 
-                        // Counts the number of lines using MultiThreading \\
-                        int numOfLines2 = getNumOfLinesThreads(fileNames);
+// Counts the number of lines using MultiThreading \\
+int numOfLines2 = getNumOfLinesThreads(fileNames);
 
-                        // Counts the number of lines using ThreadPool \\
-                        int numOfLines3 = getNumOfLinesThreadPool(fileNames);
+// Counts the number of lines using ThreadPool \\
+int numOfLines3 = getNumOfLinesThreadPool(fileNames);
 
 //#################### Here is how to count the RUN-TIME ###################\\
 
-                        long startTime = System.currentTimeMillis();
-                        /* -> Here we call any function to run... <- */
-                        long endTime = System.currentTimeMillis();
+long startTime = System.currentTimeMillis();
+/* -> Here we call any function to run... <- */
+long endTime = System.currentTimeMillis();
 
-                        System.out.println(endTime - startTime);
+System.out.println(endTime - startTime);
 
 //#################### Here is how to DELETE the files ####################\\
-                        deleteFiles(fileNames);
+deleteFiles(fileNames);
 ```
 ---
 ### UML:
