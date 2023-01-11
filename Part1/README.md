@@ -40,6 +40,25 @@ and another function `getNumOfLinesThreads(String[] names)` that counts the numb
 | 100000  | 1000       | 3.391         | 0.781                | 0.691                   |
 | 1000000 | 100        | 2.361         | 0.542                | 0.479                   |
 | 1000000 | 1000       | 23.839        | 9.344                | 4.648                   |
+
+<br>
+The running time of these three functions differs because they use different approaches for counting the number of lines in the text files.
+
+- `getNumOfLines()` reads all the text files sequentially, this means that it will read the first text file, count the number of lines in it, then move on to the next file, and so on. 
+<br>This approach can take a long time if the number of text files is large, because it reads the text files one after another, which increases the total time taken to process all the files.
+
+
+- `getNumOfLinesThreads()` uses multiple threads to read the text files, it uses an array of threads, each thread reads a single text file and counts the number of lines in it.
+After all the threads are done, it adds all the number of lines for each file. 
+<br>This approach can be faster than the previous one because multiple threads are reading the text files in parallel, which means that they can process more than one text file at a time. However, it still takes longer than the third approach because threads take up extra memory and some time will be wasted in thread creation and destruction and also with syncronization.
+
+
+- `getNumOfLinesThreadPool()` also uses multiple threads, but it uses a thread pool instead of creating a new thread for each text file. 
+<br>A thread pool is a group of pre-initialized and reusable threads that are available for use. This can be more efficient than creating a new thread for each text file because the threads in the pool are already created and ready to be used, and it also can be better with synchronization. 
+<br>This approach can be even faster than the previous approach because it uses a thread pool, it can handle the number of threads and can be set according to the number of cores that the system has.
+
+<br>In general `getNumOfLinesThreadPool()` is the fastest approach because it uses the best of both worlds, it makes use of the multithreading concept and uses a thread pool which is more efficient.
+
 ---
 ## Example usage
 
