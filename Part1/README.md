@@ -75,4 +75,4 @@ int numOfLines2 = Ex2_1.getNumOfLinesThreads(fileNames);
 int numOfLines3 = Ex2_1.getNumOfLinesThreadPool(fileNames);
 ```
 ### UML: 
-![UML](https://github.com/Lara1011/OOP_2/blob/4eeeac4675b2547e8a4b27c3b77644b418ddee48/UML.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/26ac4dc7ffe1c18e60816701cbb833bc4f8be4a5/Part1/UML.png)
