@@ -40,7 +40,7 @@ public class Ex2_1 {
         String name = "file_";
         for (int i = 1; i <= n; i++) {
             try {
-                FileWriter fWriter = new FileWriter("files\\" + name + i + ".txt");
+                FileWriter fWriter = new FileWriter("files/" + name + i + ".txt");
                 fileNames.add(name + i);
                 for (int j = 1; j <= numOfLines.get(i - 1); j++) {
                     fWriter.write("Hello line: " + j);
@@ -64,7 +64,7 @@ public class Ex2_1 {
     public static int getNumOfLines(String[] fileNames) {
         int numOfLines = 0;
         for (String filename : fileNames) {
-            try (BufferedReader reader = new BufferedReader(new FileReader("files\\" + filename + ".txt"))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("files/" + filename + ".txt"))) {
                 while (reader.readLine() != null)
                     numOfLines++;
             } catch (IOException e) {
@@ -139,5 +139,20 @@ public class Ex2_1 {
             randoms.add(x);
         }
         return randoms;
+    }
+
+    /**
+     * Delete multiple files with the given file names.
+     * @param fileNames An array of file names of files to be deleted
+     */
+    public static void deleteFiles(String[] fileNames) {
+        for(String fileName:fileNames) {
+            File file = new File("files/"+fileName + ".txt");
+            if (file.delete()) {
+                System.out.println(fileName + ".txt deleted successfully");
+            } else {
+                System.out.println("Failed to delete : " + fileName + ".txt");
+            }
+        }
     }
 }
