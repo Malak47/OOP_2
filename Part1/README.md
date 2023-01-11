@@ -2,7 +2,9 @@
 
 This project counts the number of lines in specified text files using different methods. It contains 3
 classes: `LineCounterCallable`, `LineCounterThread`, and `Ex2_1`.
+
 ---
+
 ## LineCounterCallable
 
 This class implements the `Callable` interface and counts the number of lines in a specified text
@@ -20,7 +22,9 @@ path is specified in the constructor` LineCounterThread(String)`. The number of 
 This class contains the main method, it has a function `createTextFiles(int, int, int)` that creates the files in "
 files" folder and also a function `getNumOfLines(String[] names)` that counts the number of lines using regular method,
 and another function `getNumOfLinesThreads(String[] names)` that counts the number of lines using threads method.
+
 ---
+
 ## Running time comparison (seconds)
 
 **iMac [M1: 8 - cores CPU && 8 - cores GPU, Memory: 16 GB]**
@@ -92,5 +96,5 @@ System.out.println(endTime - startTime);
 deleteFiles(fileNames);
 ```
 ---
-### UML:
+## UML:
 ![UML](https://github.com/Lara1011/OOP_2/blob/26ac4dc7ffe1c18e60816701cbb833bc4f8be4a5/Part1/UML.png)
