@@ -1,57 +1,30 @@
-# File Line Counter
-This Java program contains three methods for counting the number of lines in a given set of text files.
-### Ex2_1
-This class contains the following methods:
-#### Method 1: createTextFiles
+# Multithreading: File Line Counter
 
-This method creates 'n' text files with random number of lines in each file. It takes the following arguments:
+This project counts the number of lines in specified text files using different methods. It contains 3
+classes: `LineCounterCallable`, `LineCounterThread`, and `Ex2_1`.
+---
+## LineCounterCallable
 
-- __n:__ The number of text files to be created.
-- __seed:__ The seed for the random number generator.
-- __bound:__ The upper bound for the random number generator.
+This class implements the `Callable` interface and counts the number of lines in a specified text
+file. The file path is specified in the constructor `LineCounterCallable(String)`. The number of lines can be accessed by
+calling the call() method.
 
-It returns an array of strings containing the names of the created files.
+## LineCounterThread
 
-#### Method 2: getNumOfLines
+This class extends the `Thread` class and counts the number of lines in a specified text file. The file
+path is specified in the constructor` LineCounterThread(String)`. The number of lines can be accessed using the
+`getNumOfLines()` method.
 
-This method returns the total number of lines in all the text files specified by the 'fileNames' array. It takes the following argument:
+## Ex2_1
 
-- __fileNames:__ An array of strings containing the names of the text files.
+This class contains the main method, it has a function `createTextFiles(int, int, int)` that creates the files in "
+files" folder and also a function `getNumOfLines(String[] names)` that counts the number of lines using regular method,
+and another function `getNumOfLinesThreads(String[] names)` that counts the number of lines using threads method.
+---
+## Running time comparison (seconds)
 
-It returns the total number of lines in all the text files.
+**iMac [M1: 8 - cores CPU && 8 - cores GPU, Memory: 16 GB]**
 
-#### Method 3: getNumOfLinesThreads
-
-This method returns the total number of lines in all the text files specified by the 'fileNames' array, using multiple threads. It takes the following argument:
-
-- __fileNames:__ An array of strings containing the names of the text files.
-
-It returns the total number of lines in all the text files.
-
-#### Method 4: getNumOfLinesThreadPool
-
-This method returns the total number of lines in all the text files specified by the 'fileNames' array, using a thread pool. It takes the following argument:
-
-- __fileNames:__ An array of strings containing the names of the text files.
-
-It returns the total number of lines in all the text files.
-
-#### Method 5: generatesRandoms
-
-This method generates a list of 'n' random integers. It takes the following arguments:
-- __n:__ The number of random integers to generate.
-- __seed:__ The seed to use for the random number generator.
-- __bound:__ the upper bound (exclusive) for the random numbers.
-
-It returns a list of n random integers in the range [0, bound).
-
-### LineCounterThread
-This is a class that extends the **Thread** class and counts the number of lines in a specified text file. The file path is specified in the constructor, and the number of lines can be accessed using the **getNumLines()** method.
-
-### LineCounterCallable
-This is a class that implements the **Callable** interface and counts the number of lines in a specified text file. The file path is specified in the constructor, and the number of lines can be accessed by calling the **call()** method. The **call()** method returns the number of lines as an Integer.
-
-### Running time comparison (seconds):
 | bound   | numOfFiles | getNumOfLines | getNumOfLinesThreads | getNumOfLinesThreadPool |
 |---------|------------|---------------|----------------------|-------------------------|
 | 100000  | 100        | 0.225         | 0.131                | 0.11                    |
@@ -59,20 +32,47 @@ This is a class that implements the **Callable** interface and counts the number
 | 1000000 | 100        | 1.296         | 0.972                | 0.392                   |
 | 1000000 | 1000       | 16.529        | 12.056               | 3.301                   |
 
-### Example usage
+**MSI Laptop [CPU: Intel Core i7-9750H 6 - cores, GPU: NVIDIA GeForce GTX 1660 Ti, Memory: 32 GB]**
+
+| bound   | numOfFiles | getNumOfLines | getNumOfLinesThreads | getNumOfLinesThreadPool |
+|---------|------------|---------------|----------------------|-------------------------|
+| 100000  | 100        | 0.286         | 0.105                | 0.104                   |
+| 100000  | 1000       | 3.391         | 0.781                | 0.691                   |
+| 1000000 | 100        | 2.361         | 0.542                | 0.479                   |
+| 1000000 | 1000       | 23.839        | 9.344                | 4.648                   |
+---
+## Example usage
 
 ```Java
-// Create 5 text files with random number of lines
-String[] fileNames = Ex2_1.createTextFiles(10, 2, 10000);
 
-// Count the total number of lines in all the text files using the getNumOfLines method
-int numOfLines1 = Ex2_1.getNumOfLines(fileNames);
+//#################### Here is how to CREATE the files ####################\\
 
-// Count the total number of lines in all the text files using the getNumOfLinesThreads method
-int numOfLines2 = Ex2_1.getNumOfLinesThreads(fileNames);
+// Creates 10 text files with random number of lines up to 10000
+                String[] fileNames = createTextFiles(10, 2, 10000);
 
-// Count the total number of lines in all the text files using the getNumOfLinesThreadPool method
-int numOfLines3 = Ex2_1.getNumOfLinesThreadPool(fileNames);
+//###### Here is how to COUNT the number of lines with each function ######\\ 
+
+                        // Counts the number of lines using SingleThread \\
+                        int numOfLines1 = getNumOfLines(fileNames);
+
+                        // Counts the number of lines using MultiThreading \\
+                        int numOfLines2 = getNumOfLinesThreads(fileNames);
+
+                        // Counts the number of lines using ThreadPool \\
+                        int numOfLines3 = getNumOfLinesThreadPool(fileNames);
+
+//#################### Here is how to count the RUN-TIME ###################\\
+
+                        long startTime = System.currentTimeMillis();
+                        /* -> Here we call any function to run... <- */
+                        long endTime = System.currentTimeMillis();
+
+                        System.out.println(endTime - startTime);
+
+//#################### Here is how to DELETE the files ####################\\
+                        deleteFiles(fileNames);
 ```
-### UML: 
+---
+## UML:
+
 ![UML](https://github.com/Lara1011/OOP_2/blob/26ac4dc7ffe1c18e60816701cbb833bc4f8be4a5/Part1/UML.png)
