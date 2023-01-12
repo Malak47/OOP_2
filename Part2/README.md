@@ -1,3 +1,11 @@
+```
+ _____  _    ____  _  ______   __        _____ _____ _   _   ____  ____  ___ ___  ____  ___ _____ ___ _____ ____  
+|_   _|/ \  / ___|| |/ / ___|  \ \      / /_ _|_   _| | | | |  _ \|  _ \|_ _/ _ \|  _ \|_ _|_   _|_ _| ____/ ___| 
+  | | / _ \ \___ \| ' /\___ \   \ \ /\ / / | |  | | | |_| | | |_) | |_) || | | | | |_) || |  | |  | ||  _| \___ \ 
+  | |/ ___ \ ___) | . \ ___) |   \ V  V /  | |  | | |  _  | |  __/|  _ < | | |_| |  _ < | |  | |  | || |___ ___) |
+  |_/_/   \_\____/|_|\_\____/     \_/\_/  |___| |_| |_| |_| |_|   |_| \_\___\___/|_| \_\___| |_| |___|_____|____/ 
+```
+
 # Priority-Based Task Manager
 
 This project is an implementation of a Priority-Based Task Manager, it contains three classes: `TaskType`, `Task`, and
@@ -62,13 +70,13 @@ executor.gracefullyTerminate();
 ## Testing && Results
 **Test #1: We used all the Threads in the cpu.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Images/Result1.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result1.png)
 
 **Test #2: We used only one Thread.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/54e66a708e3134ce1ed5c84d0ee8e4aa70033217/Part2/Images/Result2.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result2.png)
 
 ---
 
 ## UML
-![UML](https://github.com/Lara1011/OOP_2/blob/b38ff23022ee27f65eb73bb3c418d30043c004d2/Part2/Images/UML.png)
+![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/UML.png)
