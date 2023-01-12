@@ -1,7 +1,6 @@
 package Part2.TestClasses;
 
-import Part2.Task;
-import Part2.TaskType;
+import Part2.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

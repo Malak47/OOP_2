@@ -11,18 +11,20 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class CustomExecutorTest {
     @Test
     void submit() throws ExecutionException, InterruptedException {
-        CustomExecutor executor = new CustomExecutor();
-        Future<String> future = executor.submit(() -> "submit(Callable<T> callable)");
-        String result = future.get();
-        Assertions.assertEquals("submit(Callable<T> callable)", result);
+        try (CustomExecutor executor = new CustomExecutor()) {
+            Future<String> future = executor.submit(() -> "submit(Callable<T> callable)");
+            String result = future.get();
+            Assertions.assertEquals("submit(Callable<T> callable)", result);
+        }
     }
 
     @Test
     void submitWithTaskType() throws ExecutionException, InterruptedException {
-        CustomExecutor executor = new CustomExecutor();
-        Future<String> future = executor.submit(() -> "submit(Callable<T> callable, TaskType taskType)", TaskType.COMPUTATIONAL);
-        String result = future.get();
-        Assertions.assertEquals("submit(Callable<T> callable, TaskType taskType)", result);
+        try (CustomExecutor executor = new CustomExecutor()) {
+            Future<String> future = executor.submit(() -> "submit(Callable<T> callable, TaskType taskType)", TaskType.COMPUTATIONAL);
+            String result = future.get();
+            Assertions.assertEquals("submit(Callable<T> callable, TaskType taskType)", result);
+        }
     }
 
     @Test
