@@ -105,4 +105,4 @@ deleteFiles(fileNames);
 ```
 ---
 ## UML:
-![UML](https://github.com/Lara1011/OOP_2/blob/26ac4dc7ffe1c18e60816701cbb833bc4f8be4a5/Part1/UML.png)
+![UML](https://github.com/Malak47/OOP_2/blob/26ac4dc7ffe1c18e60816701cbb833bc4f8be4a5/Part1/UML.png)
