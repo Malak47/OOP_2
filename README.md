@@ -31,29 +31,29 @@ This project demonstrates the use of priority-based task management. It includes
 
 ## Packages
 
-- **[Part1](https://github.com/Lara1011/OOP_2/tree/main/Part1) :** 
-  * [Ex2_1.java](https://github.com/Lara1011/OOP_2/blob/main/Part1/Ex2_1.java) : Runs the main.
-  * [LineCounterCallable.java](https://github.com/Lara1011/OOP_2/blob/main/Part1/LineCounterCallable.java) : Implements Callable\<Integer>.
-  * [LineCounterThread.java](https://github.com/Lara1011/OOP_2/blob/main/Part1/LineCounterThread.java) : Extends Thread.
-  * [Part1_test.java](https://github.com/Lara1011/OOP_2/blob/main/Part1/Part1_test.java) : JUNIT test for the functions.
-  * [UML.png](https://github.com/Lara1011/OOP_2/blob/main/Part1/UML.png) : UML graph.
-  * [README.md](https://github.com/Lara1011/OOP_2/blob/main/Part1/README.md) : Deeper explanations of the Classes and their functionalities.
+- **[Part1](https://github.com/Malak47/OOP_2/tree/main/Part1) :** 
+  * [Ex2_1.java](https://github.com/Malak47/OOP_2/blob/main/Part1/Ex2_1.java) : Runs the main.
+  * [LineCounterCallable.java](https://github.com/Malak47/OOP_2/blob/main/Part1/LineCounterCallable.java) : Implements Callable\<Integer>.
+  * [LineCounterThread.java](https://github.com/Malak47/OOP_2/blob/main/Part1/LineCounterThread.java) : Extends Thread.
+  * [Part1_test.java](https://github.com/Malak47/OOP_2/blob/main/Part1/Part1_test.java) : JUNIT test for the functions.
+  * [UML.png](https://github.com/Malak47/OOP_2/blob/main/Part1/UML.png) : UML graph.
+  * [README.md](https://github.com/Malak47/OOP_2/blob/main/Part1/README.md) : Deeper explanations of the Classes and their functionalities.
   
 
   <br>
 
-- **[Part2](https://github.com/Lara1011/OOP_2/blob/main/Part2) :**
-  * [CustomExecutor.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/CustomExecutor.java) : Extends ThreadPoolExecutor.
-  * [Task.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/Task.java) : Extends FutureTask\<T> and implements Callable\<T>, Comparable\<Task\<T>>.
-  * [TaskType.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/TaskType.java) : Enum class which contains the Priorities.
-  * **[Images folder](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images)** :
-    * [Result1.png](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result1.png) : Test+Results with Multi-Threading.
-    * [Result2.png](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result2.png) : Test+Results with Single Thread.
-    * [UML.png](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/UML.png) : UML graph for Part2.
-    * [Part2.uml](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Part2.uml) : UML graph.
-  * **[TestClasses folder](https://github.com/Lara1011/OOP_2/blob/main/Part2/TestClasses)** :
-      * [myTest.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/TestClasses/myTest.java) : Contains the main, my own test.
-      * [CustomExecutorTest.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/TestClasses/CustomExecutorTest.java) : JUNIT test for CustomExecutor class functions.
-      * [TaskTest.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/TestClasses/TaskTest.java) : JUNIT test for Task class functions.
-      * [Tests.java](https://github.com/Lara1011/OOP_2/blob/main/Part2/TestClasses/Tests.java) : Inclouded test.
-  * [README.md](https://github.com/Lara1011/OOP_2/blob/main/Part2/README.md) : Deeper explanation of the Classes and their functionalities.
+- **[Part2](https://github.com/Malak47/OOP_2/blob/main/Part2) :**
+  * [CustomExecutor.java](https://github.com/Malak47/OOP_2/blob/main/Part2/CustomExecutor.java) : Extends ThreadPoolExecutor.
+  * [Task.java](https://github.com/Malak47/OOP_2/blob/main/Part2/Task.java) : Extends FutureTask\<T> and implements Callable\<T>, Comparable\<Task\<T>>.
+  * [TaskType.java](https://github.com/Malak47/OOP_2/blob/main/Part2/TaskType.java) : Enum class which contains the Priorities.
+  * **[Images folder](https://github.com/Malak47/OOP_2/blob/main/Part2/Images)** :
+    * [Result1.png](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/Result1.png) : Test+Results with Multi-Threading.
+    * [Result2.png](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/Result2.png) : Test+Results with Single Thread.
+    * [UML.png](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/UML.png) : UML graph for Part2.
+    * [Part2.uml](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/Part2.uml) : UML graph.
+  * **[TestClasses folder](https://github.com/Malak47/OOP_2/blob/main/Part2/TestClasses)** :
+      * [myTest.java](https://github.com/Malak47/OOP_2/blob/main/Part2/TestClasses/myTest.java) : Contains the main, my own test.
+      * [CustomExecutorTest.java](https://github.com/Malak47/OOP_2/blob/main/Part2/TestClasses/CustomExecutorTest.java) : JUNIT test for CustomExecutor class functions.
+      * [TaskTest.java](https://github.com/Malak47/OOP_2/blob/main/Part2/TestClasses/TaskTest.java) : JUNIT test for Task class functions.
+      * [Tests.java](https://github.com/Malak47/OOP_2/blob/main/Part2/TestClasses/Tests.java) : Inclouded test.
+  * [README.md](https://github.com/Malak47/OOP_2/blob/main/Part2/README.md) : Deeper explanation of the Classes and their functionalities.
