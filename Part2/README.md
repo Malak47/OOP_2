@@ -70,13 +70,13 @@ executor.gracefullyTerminate();
 ## Testing && Results
 **Test #1: We used all the Threads in the cpu.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result1.png)
+![UML](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/Result1.png)
 
 **Test #2: We used only one Thread.**
 
-![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/Result2.png)
+![UML](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/Result2.png)
 
 ---
 
 ## UML
-![UML](https://github.com/Lara1011/OOP_2/blob/main/Part2/Images/UML.png)
+![UML](https://github.com/Malak47/OOP_2/blob/main/Part2/Images/UML.png)
